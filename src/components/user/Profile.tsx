@@ -35,7 +35,7 @@ const Profile: React.FC = () => {
 
   const handleSave = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/users/update-profile', {
+      const response = await fetch('https://athulfood-4.onrender.com/api/users/update-profile', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -38,6 +38,7 @@ const RegisterDeliveryPerson: React.FC = () => {
     useEffect(() => {
         if (isAuthenticated) {
             toast.success("Deliveryboy Registered Succefully!")
+            
             window.location.href = "/adminhome"; 
         }
         if (error) {

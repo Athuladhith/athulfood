@@ -30,7 +30,7 @@ export const addToCart = (foodItemId: string,userId?:string) => async (dispatch:
     dispatch({ type: ADD_TO_CART_REQUEST });
     const config = getAuthConfig();
 
-    const response = await api.post('http://localhost:5000/api/users/addtocart', {
+    const response = await api.post('https://athulfood-4.onrender.com/api/users/addtocart', {
       foodItemId,
       userId,
       quantity:1,
@@ -55,7 +55,7 @@ export const removeCartItemApi = async (userId: string, itemId: string) => {
     console.log(userId,'userrrr');
     console.log(itemId,'itemmmid')
    
-    const response = await api.delete('http://localhost:5000/api/users/removeItem', {
+    const response = await api.delete('https://athulfood-4.onrender.com/api/users/removeItem', {
       params: { userId, itemId },
       
     });
@@ -68,7 +68,7 @@ export const removeCartItemApi = async (userId: string, itemId: string) => {
 export const clearCartApi = async (userId: string) => {
   try {
 
-    const response = await api.delete('http://localhost:5000/api/users/clearCart', {
+    const response = await api.delete('https://athulfood-4.onrender.com/api/users/clearCart', {
       params: { userId },
       
     });

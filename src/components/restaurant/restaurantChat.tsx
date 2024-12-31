@@ -21,7 +21,7 @@ interface ActiveUsers {
   [userId: string]: boolean;
 }
 
-const socket = io('http://localhost:5000');
+const socket = io('https://athulfood-4.onrender.com');
 
 const RestaurantChatPage: React.FC = () => {
   const restaurantId = localStorage.getItem('restaurantid');
@@ -35,7 +35,7 @@ const RestaurantChatPage: React.FC = () => {
     const fetchConversations = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/restaurant/conversations/${restaurantId}`
+          `https://athulfood-4.onrender.com/api/restaurant/conversations/${restaurantId}`
         );
         setConversations(response.data);
         if (response.data.length > 0) {
@@ -54,7 +54,7 @@ const RestaurantChatPage: React.FC = () => {
       if (conversationId) {
         try {
           const response = await axios.get(
-            `http://localhost:5000/api/restaurant/messages/${conversationId}`
+            `https://athulfood-4.onrender.com/api/restaurant/messages/${conversationId}`
           );
           setMessages(response.data);
         } catch (error) {
@@ -102,7 +102,7 @@ const RestaurantChatPage: React.FC = () => {
     };
 
     try {
-      await axios.post('http://localhost:5000/api/restaurant/message', messagePayload);
+      await axios.post('https://athulfood-4.onrender.com/api/restaurant/message', messagePayload);
       socket.emit('send', data);
       setNewMessage('');
       setMessages((prevMessages) => [

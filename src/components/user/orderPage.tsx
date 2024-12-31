@@ -7,7 +7,7 @@ import Headder from "./Headder";
 import { io } from 'socket.io-client';
 import { Button, Card, CardContent, Typography, Chip, Divider } from "@mui/material";
 import { ShoppingBagOutlined, DoneOutlined, ErrorOutlineOutlined } from "@mui/icons-material";
-const socket = io('http://localhost:5000');
+const socket = io('https://athulfood-4.onrender.com');
 
 const OrdersPage = () => {
   const [orders, setOrders] = useState<IOrder[]>([]);

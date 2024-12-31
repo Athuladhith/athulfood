@@ -28,10 +28,10 @@ const RestaurantDetail: React.FC = () => {
   useEffect(() => {
     const fetchDetails = async (page = 1) => {
       try {
-        const restaurantResponse = await api.get(`http://localhost:5000/api/users/restaurant/${id}`);
+        const restaurantResponse = await api.get(`https://athulfood-4.onrender.com/api/users/restaurant/${id}`);
         setRestaurant(restaurantResponse.data);
 
-        const foodItemsResponse = await api.get(`http://localhost:5000/api/users/fooditems?restaurant=${id}&page=${page}&limit=10`);
+        const foodItemsResponse = await api.get(`https://athulfood-4.onrender.com/api/users/fooditems?restaurant=${id}&page=${page}&limit=10`);
         
         setFoodItems(foodItemsResponse.data.foodItems);
         setPagination({
@@ -74,7 +74,7 @@ const RestaurantDetail: React.FC = () => {
   const handleReportRestaurant = async () => {
     try {
       if (user) {
-        await api.post(`http://localhost:5000/api/users/report/${id}`, { userId: user.id });
+        await api.post(`https://athulfood-4.onrender.com/api/users/report/${id}`, { userId: user.id });
         toast.success('Restaurant reported successfully', {
           position: 'top-right',
           autoClose: 3000,

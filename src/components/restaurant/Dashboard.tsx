@@ -91,7 +91,7 @@ const Dashboard: React.FC = () => {
     if (!restaurantId) return;
     const fetchDashboardData = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/restaurant/dashboard/${restaurantId}`);
+        const { data } = await axios.get(`https://athulfood-4.onrender.com/api/restaurant/dashboard/${restaurantId}`);
         setTotalRevenue(data.totalRevenue);
         setOrders(data.orders || []); 
         setRecentOrders(data.orders?.slice(-10).reverse() || []); 
@@ -108,7 +108,7 @@ const Dashboard: React.FC = () => {
   const handleDateFilter = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/restaurant/orders/${restaurantId}`,
+        `https://athulfood-4.onrender.com/api/restaurant/orders/${restaurantId}`,
         { params: { startDate, endDate } }
       );
       console.log(data,'filteredddd')

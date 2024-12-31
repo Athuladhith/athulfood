@@ -20,7 +20,7 @@ const Header: React.FC = () => {
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await api.get('http://localhost:5000/api/admin/restaurants');
+        const response = await api.get('https://athulfood-4.onrender.com/api/admin/restaurants');
         setAllRestaurants(response.data);
       } catch (error) {
         console.error('Error fetching restaurants:', error);

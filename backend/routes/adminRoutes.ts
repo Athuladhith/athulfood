@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/adminlogin',adminlogin)
 router.get('/users',authenticateJWT,getUsers)
 router.put('/users/:id/block',authenticateJWT,blockUnblockUser)
-router.post('/restaurantsignup',authenticateJWT,registerRestaurant)
+router.post('/restaurantsignup',registerRestaurant)
 router.post('/deliverypersonsignup',authenticateJWT,registerDeliveryPerson)
 router.get('/restaurants',getRestaurants)
 router.put('/restaurant/:id/block',authenticateJWT,blockUnblockRestaurant)

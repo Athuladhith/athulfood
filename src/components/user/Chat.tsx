@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'tailwindcss/tailwind.css';
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://athulfood-4.onrender.com');
 
 interface Message {
   senderId: string;
@@ -38,7 +38,7 @@ const ChatPage: React.FC = () => {
    
     const fetchRestaurant = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/restaurant/${id}`);
+        const response = await axios.get(`https://athulfood-4.onrender.com/api/users/restaurant/${id}`);
         setRestaurantName(response.data.restaurantName);
       } catch (error) {
         console.error('Error fetching restaurant:', error);
@@ -53,7 +53,7 @@ const ChatPage: React.FC = () => {
 
     const createConversation = async () => {
       try {
-        const response = await axios.post('http://localhost:5000/api/users/conversations', {
+        const response = await axios.post('https://athulfood-4.onrender.com/api/users/conversations', {
           restaurantId: id,
           userId: loggedInUserId,
         });
@@ -72,7 +72,7 @@ const ChatPage: React.FC = () => {
     if (conversationId) {
       const fetchMessages = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/api/users/messages/${conversationId}`);
+          const response = await axios.get(`https://athulfood-4.onrender.com/api/users/messages/${conversationId}`);
           setMessages(response.data);
         } catch (error) {
           console.error('Error fetching messages:', error);
@@ -133,7 +133,7 @@ const ChatPage: React.FC = () => {
     setNewMessage('');
 
     try {
-      await axios.post('http://localhost:5000/api/users/messages', messageData);
+      await axios.post('https://athulfood-4.onrender.com/api/users/messages', messageData);
       socket.emit('sendMessage', notification); 
     } catch (error) {
       console.error('Error sending message:', error);

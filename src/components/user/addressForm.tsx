@@ -55,7 +55,7 @@ const AddressForm: React.FC<AddressFormProps> = ({ setSelectedAddress }) => {
   useEffect(() => {
     if (user) {
       axios
-        .get(`http://localhost:5000/api/users/addresses/${user.id}`)
+        .get(`https://athulfood-4.onrender.com/api/users/addresses/${user.id}`)
         .then((response) => {
           console.log('Fetched Addresses:', response.data);
           setAddresses(response.data);
@@ -84,7 +84,7 @@ const AddressForm: React.FC<AddressFormProps> = ({ setSelectedAddress }) => {
 
     const requestData = { ...newAddress, userId: user.id };
     try {
-      const response = await axios.post('http://localhost:5000/api/users/address', requestData);
+      const response = await axios.post('https://athulfood-4.onrender.com/api/users/address', requestData);
       setAddresses((prevAddresses) => [...prevAddresses, response.data]);
       setShowNewAddressForm(false);
       setNewAddress({ street: '', city: '', state: '', postalCode: '', country: '' }); // Reset form

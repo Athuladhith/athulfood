@@ -19,7 +19,7 @@ import {
   CircularProgress,
 } from "@mui/material";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://athulfood-4.onrender.com");
 
 interface Address {
   _id: string;
@@ -77,7 +77,7 @@ const OrderDetailsPage: React.FC = () => {
     const fetchOrderDetails = async () => {
       try {
         const response = await api.get(
-          `http://localhost:5000/api/users/orders/${paymentId}`
+          `https://athulfood-4.onrender.com/api/users/orders/${paymentId}`
         );
         const fetchedOrders = response.data.map((order: any) => ({
           id: order._id,
@@ -99,7 +99,7 @@ const OrderDetailsPage: React.FC = () => {
           fetchedOrders[0]?.foodItems[0]?.foodItemName || ""
         );
         const foodResponse = await api.get(
-          `http://localhost:5000/api/users/${foodname}`
+          `https://athulfood-4.onrender.com/api/users/${foodname}`
         );
         setImage(foodResponse.data.image);
         setOrderStatus(response.data.orderStatus);
@@ -112,7 +112,7 @@ const OrderDetailsPage: React.FC = () => {
         const foodItemPromises = fetchedOrders[0].foodItems.map(
           async (item: { foodItem: string; quantity: number }) => {
             const foodResponse = await api.get(
-              `http://localhost:5000/api/users/${item.foodItem}`
+              `https://athulfood-4.onrender.com/api/users/${item.foodItem}`
             );
             return {
               id: foodResponse.data._id,

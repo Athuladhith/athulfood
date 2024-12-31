@@ -41,6 +41,7 @@ const RegisterRestaurant: React.FC = () => {
         if (isAuthenticated) {
             toast.success("Restaurant Registered Succefully!")
             window.location.href = "/adminhome";
+            
         }
         if (error) {
             console.log(error);

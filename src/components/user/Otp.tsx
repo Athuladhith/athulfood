@@ -43,7 +43,7 @@ const OtpVerification: React.FC = () => {
     useEffect(() => {
         if (isAuthenticated) {
             toast.success("otp verified"); 
-            window.location.href = "/login";
+            window.location.href = "/";
         }
         if (error) {
             toast.error("wrong otp");

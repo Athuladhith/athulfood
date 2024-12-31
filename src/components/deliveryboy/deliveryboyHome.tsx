@@ -41,7 +41,7 @@ const DeliveryPersonHome: React.FC = () => {
 
   useEffect(() => {
     const deliveryBoyId = localStorage.getItem('deliveryBoyId') || '12345'; 
-    const newSocket = io('http://localhost:5000');
+    const newSocket = io('https://athulfood-4.onrender.com');
     setSocket(newSocket);
 
 
@@ -70,7 +70,7 @@ const DeliveryPersonHome: React.FC = () => {
 
 
   const handleOutForDelivery = async (orderId: string) => {
-const response= await axios.post(`http://localhost:5000/api/deliveryperson/orderupdates/${orderId}`)
+const response= await axios.post(`https://athulfood-4.onrender.com/api/deliveryperson/orderupdates/${orderId}`)
 const orders=response.data.order;
 console.log(response.data.order,'response for out for delivery')
 
@@ -87,7 +87,7 @@ console.log(response.data.order,'response for out for delivery')
 
 
   const handleCompleteOrder =async (orderId: string) => {
-    const response= await axios.post(`http://localhost:5000/api/deliveryperson/orderupdatess/${orderId}`)
+    const response= await axios.post(`https://athulfood-4.onrender.com/api/deliveryperson/orderupdatess/${orderId}`)
     if (socket) {
       socket.emit('completeOrder',  orderId );
       setOrders((prevOrders) => prevOrders.filter((order) => order.id !== orderId));

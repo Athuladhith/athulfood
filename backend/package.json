@@ -4,11 +4,10 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-  "build": "tsc",             
-  "start": "ts-node index.ts", 
-  "start:prod": "node dist/index.js" 
-}
-,
+    "build": "tsc",
+    "start": "ts-node index.ts",
+    "start:prod": "node dist/index.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

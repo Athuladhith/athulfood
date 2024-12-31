@@ -81,7 +81,7 @@ const user = storedUser ? JSON.parse(storedUser) : null;
     try {
       if (paymentMethod === 'paypal') {
       
-        const orderResponse = await api.post('http://localhost:5000/api/users/createOrder', {
+        const orderResponse = await api.post('https://athulfood-4.onrender.com/api/users/createOrder', {
           amount: totalAmount * 100,
           currency: 'INR',
           orderData,
@@ -98,7 +98,7 @@ const user = storedUser ? JSON.parse(storedUser) : null;
             name: 'Your Company Name',
             order_id: orderId,
             handler: async (response: any) => {
-              await api.post('http://localhost:5000/api/users/saveOrder', {
+              await api.post('https://athulfood-4.onrender.com/api/users/saveOrder', {
                 paymentId: response.razorpay_payment_id,
                 orderId: orderId,
                 ...orderData,
@@ -122,7 +122,7 @@ const user = storedUser ? JSON.parse(storedUser) : null;
       } else if (paymentMethod === 'cod') {
         const payid = crypto.randomUUID();
         
-        const codOrderResponse = await api.post('http://localhost:5000/api/users/createOrder', {
+        const codOrderResponse = await api.post('https://athulfood-4.onrender.com/api/users/createOrder', {
           ...orderData,
           paymentMethod: 'COD',
           paymentId: payid
@@ -130,7 +130,7 @@ const user = storedUser ? JSON.parse(storedUser) : null;
         });
   
         const { orderId } = codOrderResponse.data;
-        await api.post('http://localhost:5000/api/users/saveOrder', {
+        await api.post('https://athulfood-4.onrender.com/api/users/saveOrder', {
           orderId: orderId,
           ...orderData,
           paymentId: payid
@@ -143,7 +143,7 @@ const user = storedUser ? JSON.parse(storedUser) : null;
         navigate('/orderdetails', { state: {paymentId:payid, orderId: orderId, paymentMethod: 'cod' } });
       } else {
         
-        await api.post('http://localhost:5000/api/users/createOrder', orderData,);
+        await api.post('https://athulfood-4.onrender.com/api/users/createOrder', orderData,);
   
 
         await clearCart();

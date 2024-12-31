@@ -45,11 +45,11 @@ const AdminHomePage: React.FC = () => {
           revenueResponse,
           topRestaurantsResponse,
         ] = await Promise.all([
-          axios.get('http://localhost:5000/api/admin/total-users'),
-          axios.get('http://localhost:5000/api/admin/total-restaurants'),
-          axios.get('http://localhost:5000/api/admin/total-orders'),
-          axios.get('http://localhost:5000/api/admin/total-revenue'),
-          axios.get('http://localhost:5000/api/admin/top-restaurants'),
+          axios.get('https://athulfood-4.onrender.com/api/admin/total-users'),
+          axios.get('https://athulfood-4.onrender.com/api/admin/total-restaurants'),
+          axios.get('https://athulfood-4.onrender.com/api/admin/total-orders'),
+          axios.get('https://athulfood-4.onrender.com/api/admin/total-revenue'),
+          axios.get('https://athulfood-4.onrender.com/api/admin/top-restaurants'),
         ]);
         console.log(revenueResponse.data,'revenu dattatttattattatta nnneeewbbwnwwww')
 

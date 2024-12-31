@@ -52,7 +52,7 @@ export const register = (userData: FormData) => async (dispatch: Dispatch<AnyAct
             console.log(`${key}: ${value}`);
         });
 
-        const { data } = await axios.post("http://localhost:5000/api/users/signup", userData);
+        const { data } = await axios.post("https://athulfood-4.onrender.com/api/users/signup", userData);
 
         dispatch({
             type: REGISTER_USER_SUCCESS,
@@ -95,7 +95,7 @@ export const login = (userData: { email: string; password: string }) => async (d
       dispatch({ type:  LOGIN_USER_REQUEST });
     
   
-      const response = await axios.post("http://localhost:5000/api/users/login", userData,{
+      const response = await axios.post("https://athulfood-4.onrender.com/api/users/login", userData,{
         headers: {
           'Content-Type': 'application/json',
         }
@@ -137,7 +137,7 @@ localStorage.setItem('userss', JSON.stringify(response.data.user.name))
 export const googleregister=(userData: decodedToken )=>async(dispatch:Dispatch<AnyAction>)=>{
     try {
         dispatch({type:REGISTER_GOOGLE_REQUEST})
-        const {data}=await axios.post("http://localhost:5000/api/users/googlesignup", userData)
+        const {data}=await axios.post("https://athulfood-4.onrender.com/api/users/googlesignup", userData)
         dispatch({
             type:REGISTER_GOOGLE_SUCCESS,
             payload:data.user
@@ -165,7 +165,7 @@ export const verifyOtp = (otp: string) => async (dispatch: Dispatch<AnyAction>) 
         dispatch({ type: OTP_USER_REQUEST });
         console.log(otp,"ooooo")
 
-        const { data } = await axios.post('http://localhost:5000/api/users/verify-otp', { receivedOtp: otp },
+        const { data } = await axios.post('https://athulfood-4.onrender.com/api/users/verify-otp', { receivedOtp: otp },
             { headers: { 'Content-Type': 'application/json' }}
          );
 
@@ -196,7 +196,7 @@ export const fetchRestaurants = (): ThunkAction<void, RootState, unknown, AnyAct
   
       
   
-      const { data } = await axios.get('http://localhost:5000/api/users/restaurants',);
+      const { data } = await axios.get('https://athulfood-4.onrender.com/api/users/restaurants',);
 
   
       dispatch({ type: FETCH_RESTAURANTS_SUCCESS, payload: data });

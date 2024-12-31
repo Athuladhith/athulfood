@@ -246,7 +246,7 @@ export default function RestaurantTable() {
   };
 
   const handleRegisterClick = () => {
-    navigate('/restaurantregister'); 
+    navigate('/registerrestaurant'); 
   };
   return (
     <MainLayout>

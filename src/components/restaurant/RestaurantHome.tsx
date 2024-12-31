@@ -24,7 +24,7 @@ import {
 } from '@mui/material';
 import { FoodBank, Visibility } from '@mui/icons-material';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://athulfood-4.onrender.com');
 
 interface Order {
   id: string;
@@ -51,7 +51,7 @@ const RestaurantHome: React.FC = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/restaurant/orders/${restaurantId}`);
+        const response = await axios.get(`https://athulfood-4.onrender.com/api/restaurant/orders/${restaurantId}`);
         const fetchedOrders = response.data.map((order: any) => ({
           id: order._id,
           user: order.user.name,
@@ -112,7 +112,7 @@ const RestaurantHome: React.FC = () => {
       );
       setOrders(updatedOrders);
 
-      await axios.post(`http://localhost:5000/api/restaurant/orderupdate/${orderId}`, { status: newStatus });
+      await axios.post(`https://athulfood-4.onrender.com/api/restaurant/orderupdate/${orderId}`, { status: newStatus });
 
       const updatedOrder = updatedOrders.find((order) => order.id === orderId);
 

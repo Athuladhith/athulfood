@@ -47,7 +47,7 @@ import {
  
 import { Dispatch } from 'redux';
 import { AnyAction } from 'redux';
-import axios, { AxiosError } from 'axios';
+import axios, { Axios, AxiosError } from 'axios';
 import { ThunkAction } from 'redux-thunk';
 import { RootState } from '../store';
 import Api from '../restaurantApi'
@@ -100,7 +100,7 @@ export const registerRestaurant = (userData: FormData) => async (dispatch: Dispa
         };
        
 
-        const { data } = await api.post("/api/admin/restaurantsignup", userData);
+        const { data } = await axios.post("https://athulfood-4.onrender.com/api/admin/restaurantsignup", userData);
 
         dispatch({
             type: REGISTER_RESTAURANT_SUCCESS,
@@ -193,7 +193,7 @@ export const fetchCategories = (): ThunkAction<void, RootState, unknown, AnyActi
     try {
      
         dispatch({ type: FETCH_CATEGORIES_REQUEST });
-        const { data } = await axios.get('http://localhost:5000/api/restaurant/categories',);
+        const { data } = await axios.get('https://athulfood-4.onrender.com/api/restaurant/categories',);
         console.log(data,'errroorororoororooroororonnoowoowwoow');
         dispatch({ type: FETCH_CATEGORIES_SUCCESS, payload: data });
     } catch (error) {

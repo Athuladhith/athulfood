@@ -53,7 +53,7 @@ export const fetchdeliveryboy=(deliveryboydata:{email:string,password:string})=>
     debugger;
     try {
         dispatch({type:FETCH_DELIVERYBOYS_LOGIN_REQUEST})
-        const {data}=await axios.post('http://localhost:5000/api/deliveryperson/deliveryboylogin',deliveryboydata)
+        const {data}=await axios.post('https://athulfood-4.onrender.com/api/deliveryperson/deliveryboylogin',deliveryboydata)
         console.log(data,'data')
         localStorage.setItem('deliveryboyid', data.deliveryboyid);
         dispatch({
