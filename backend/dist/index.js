@@ -22,8 +22,14 @@ const PORT = 5000;
 const server = http_1.default.createServer(app);
 const io = new socket_io_1.Server(server, {
     cors: {
-        origin: "http://localhost:3000",
-        methods: ["GET", "POST"]
+        origin: [
+            "http://localhost:3000",  // Local development frontend
+            "https://brilliant-jelly-9b3a3d.netlify.app",  // Netlify frontend
+            "https://athulfood-4.onrender.com"  // Backend domain (optional, only if necessary)
+        ],
+        methods: ["GET", "POST"],
+        allowedHeaders: ["Content-Type", "Authorization"],  // You can add more headers if needed
+        credentials: true 
     }
 });
 (0, db_1.default)()
