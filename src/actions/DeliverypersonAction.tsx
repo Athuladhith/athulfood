@@ -13,6 +13,7 @@ import { Dispatch } from 'redux';
 import { AnyAction } from 'redux';
 import axios, { AxiosError } from 'axios';
 import api from '../Api'
+import Api from '../AApi';
 
 
 export const registerDeliveryPerson = (userData: FormData) => async (dispatch: Dispatch<AnyAction>) => {
@@ -27,7 +28,7 @@ export const registerDeliveryPerson = (userData: FormData) => async (dispatch: D
 
        
         
-        const { data } = await api.post("/api/admin/deliverypersonsignup", userData, config);
+        const { data } = await Api.post("/api/admin/deliverypersonsignup", userData, config);
 
         dispatch({
             type: REGISTER_DELIVERY_PERSON_SUCCESS,
