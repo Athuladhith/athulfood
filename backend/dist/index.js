@@ -22,11 +22,12 @@ const PORT = 5000;
 const server = http_1.default.createServer(app);
 const io = new socket_io_1.Server(server, {
     cors: {
-        origin: [
-            "http://localhost:3000",  // Local development frontend
-            "https://silver-flan-30966d.netlify.app",  // Netlify frontend
-            "https://athulfood-4.onrender.com"  // Backend domain (optional, only if necessary)
-        ],
+        origin: "*",
+        // origin: [
+        //     "http://localhost:3000",  // Local development frontend
+        //     "https://silver-flan-30966d.netlify.app",  // Netlify frontend
+        //     "https://athulfood-4.onrender.com"  // Backend domain (optional, only if necessary)
+        // ],
         methods: ["GET", "POST"],
         allowedHeaders: ["Content-Type", "Authorization"],  // You can add more headers if needed
         credentials: true 
@@ -35,11 +36,12 @@ const io = new socket_io_1.Server(server, {
 (0, db_1.default)()
     .then(() => {
         app.use((0, cors_1.default)({
-            origin: [
-                "http://localhost:3000",  // Local development frontend
-                "https://silver-flan-30966d.netlify.app",  // Production frontend on Netlify
-                "https://athulfood-4.onrender.com"  // Backend domain, if necessary
-            ],
+            origin: "*",
+            // origin: [
+            //     "http://localhost:3000",  // Local development frontend
+            //     "https://silver-flan-30966d.netlify.app",  // Production frontend on Netlify
+            //     "https://athulfood-4.onrender.com"  // Backend domain, if necessary
+            // ],
             methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],  // Add HTTP methods as required
             allowedHeaders: ["Content-Type", "Authorization"],  // Include custom headers if needed
             credentials: true  // Allow cookies and credentials
