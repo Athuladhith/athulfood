@@ -24,7 +24,7 @@ const io = new socket_io_1.Server(server, {
     cors: {
         origin: [
             "http://localhost:3000",  // Local development frontend
-            "https://brilliant-jelly-9b3a3d.netlify.app",  // Netlify frontend
+            "https://silver-flan-30966d.netlify.app",  // Netlify frontend
             "https://athulfood-4.onrender.com"  // Backend domain (optional, only if necessary)
         ],
         methods: ["GET", "POST"],
