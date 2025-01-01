@@ -28,8 +28,14 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3000", 
-        methods: ["GET", "POST"]
+      origin: [
+             "http://localhost:3000",  // Local development frontend
+             "https://silver-flan-30966d.netlify.app",  // Netlify frontend
+          "https://athulfood-4.onrender.com"  // Backend domain (optional, only if necessary)
+         ],
+        methods: ["GET", "POST"],
+        allowedHeaders: ["Content-Type", "Authorization"],  // You can add more headers if needed
+        credentials: true ,
     }
 });
 
@@ -37,7 +43,17 @@ const io = new Server(server, {
 connectDB()
   .then(() => {
   
-    app.use(cors());
+    // app.use(cors());
+    app.use(cors({
+      origin: [
+          "http://localhost:3000",  // Local development frontend
+          "https://silver-flan-30966d.netlify.app",  // Production frontend on Netlify
+          "https://athulfood-4.onrender.com"  // Backend domain, if necessary
+      ],
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],  // Add HTTP methods as required
+      allowedHeaders: ["Content-Type", "Authorization"],  // Include custom headers if needed
+      credentials: true  // Allow cookies and credentials
+  }));
     app.use(express.json());
     app.use(express.static(buildpath))
 
