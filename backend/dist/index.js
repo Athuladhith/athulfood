@@ -34,7 +34,17 @@ const io = new socket_io_1.Server(server, {
 });
 (0, db_1.default)()
     .then(() => {
-    app.use((0, cors_1.default)());
+        app.use((0, cors_1.default)({
+            origin: [
+                "http://localhost:3000",  // Local development frontend
+                "https://silver-flan-30966d.netlify.app",  // Production frontend on Netlify
+                "https://athulfood-4.onrender.com"  // Backend domain, if necessary
+            ],
+            methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],  // Add HTTP methods as required
+            allowedHeaders: ["Content-Type", "Authorization"],  // Include custom headers if needed
+            credentials: true  // Allow cookies and credentials
+        }));
+        
     app.use(express_1.default.json());
     app.use(express_1.default.static(buildpath));
     app.use('/api/users', userRoutes_1.default);
