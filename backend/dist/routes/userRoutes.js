@@ -22,7 +22,7 @@ router.delete('/clearCart', Authmiddleware_1.default, userController_1.clearCart
 router.delete('/removeItem', Authmiddleware_1.default, userController_1.removeCartItem);
 router.post('/updatecartitem', Authmiddleware_1.default, userController_1.updateCartItem);
 router.get('/addresses/:id', userController_1.getAddresses);
-router.post('/address', Authmiddleware_1.default, userController_1.addAddress);
+router.post('/address', userController_1.addAddress);
 router.post('/createOrder', Authmiddleware_1.default, userController_1.createOrder);
 router.get('/orders/:paymentId', Authmiddleware_1.default, userController_1.getOrderDetailss);
 router.post('/saveOrder', Authmiddleware_1.default, userController_1.saveOrder);
