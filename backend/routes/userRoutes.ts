@@ -32,7 +32,7 @@ router.post('/updatecartitem',authenticateJWT, updateCartItem);
 router.get('/addresses/:id', getAddresses);
 
 
-router.post('/address',authenticateJWT,  addAddress);
+router.post('/address',  addAddress);
 
 
 router.post('/createOrder',authenticateJWT, createOrder)
